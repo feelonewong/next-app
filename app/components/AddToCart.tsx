@@ -1,11 +1,11 @@
 import React from "react";
 
 const AddToCart = () => {
-    return (
-        <div>
-            <button>cart</button>
-        </div>
-    )
-}
+  return (
+    <div>
+      <button className="btn btn-primary">Button</button>
+    </div>
+  );
+};
 
-export default AddToCart
+export default AddToCart;
