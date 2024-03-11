@@ -18,17 +18,18 @@ export async function POST(request: NextRequest) {
   }
   const currentUser = await prisma.user.findUnique({
     where: {
-      email: body.email
-    }
-  })
-  if(currentUser){
-    return NextResponse.json({error: "当前邮箱已存在"}, { status: 201 });
+      email: body.email,
+    },
+  });
+  if (currentUser) {
+    return NextResponse.json({ error: "当前邮箱已存在" }, { status: 201 });
   }
   const newUser = await prisma.user.create({
     data: {
       name: body.name,
-      email: body.email
-    }
-  })
+      email: body.email,
+    },
+  });
+  console.log(newUser, "newUser");
   return NextResponse.json(newUser, { status: 200 });
 }
